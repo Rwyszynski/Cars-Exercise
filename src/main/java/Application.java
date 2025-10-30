@@ -9,7 +9,7 @@ public class Application {
         collection.readFromFile("src/main/resources/models.csv");
 
         System.out.println("All models:");
-        collection.getAllModels().forEach(System.out::println);
+        collection.getModels().forEach(System.out::println);
 
 
     }
