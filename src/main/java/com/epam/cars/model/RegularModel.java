@@ -1,4 +1,4 @@
-package com.assesment.cars.model;
+package com.epam.cars.model;
 
 public class RegularModel extends Model {
     private int engineDisplacement;
