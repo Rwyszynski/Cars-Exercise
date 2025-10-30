@@ -1,6 +1,6 @@
-package car;
+package com.assesment.cars.car;
 
-import model.Model;
+import com.assesment.cars.model.Model;
 
 public abstract class Car {
     private String licensePlate;

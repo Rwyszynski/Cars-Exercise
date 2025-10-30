@@ -1,8 +1,9 @@
+package com.assesment.cars;
 
-import model.ElectricModel;
-import model.Model;
-import model.RegularModel;
-import parser.ModelParser;
+import com.assesment.cars.model.ElectricModel;
+import com.assesment.cars.model.Model;
+import com.assesment.cars.model.RegularModel;
+import com.assesment.cars.parser.ModelParser;
 
 public class Application {
 

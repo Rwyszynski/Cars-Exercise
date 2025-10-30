@@ -1,6 +1,4 @@
-package model;
-
-import java.util.Objects;
+package com.assesment.cars.model;
 
 public abstract class Model implements Comparable<Model> {
     protected String manufacturer;

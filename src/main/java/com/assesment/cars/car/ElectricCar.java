@@ -1,7 +1,7 @@
-package car;
+package com.assesment.cars.car;
 
-import model.ElectricModel;
-import model.Model;
+import com.assesment.cars.model.ElectricModel;
+import com.assesment.cars.model.Model;
 
 public class ElectricCar extends Car {
     private int batteryLevel;

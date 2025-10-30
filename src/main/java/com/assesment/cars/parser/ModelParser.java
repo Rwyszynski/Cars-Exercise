@@ -1,7 +1,7 @@
-package parser;
-import model.ElectricModel;
-import model.Model;
-import model.RegularModel;
+package com.assesment.cars.parser;
+import com.assesment.cars.model.ElectricModel;
+import com.assesment.cars.model.Model;
+import com.assesment.cars.model.RegularModel;
 
 public class ModelParser {
 

@@ -1,6 +1,7 @@
 package car;
 
-import model.ElectricModel;
+import com.assesment.cars.car.ElectricCar;
+import com.assesment.cars.model.ElectricModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

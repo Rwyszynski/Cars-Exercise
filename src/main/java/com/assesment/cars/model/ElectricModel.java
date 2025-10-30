@@ -1,5 +1,4 @@
-package model;
-import car.Car;
+package com.assesment.cars.model;
 
 public class ElectricModel extends Model {
     private int batteryCapacity;

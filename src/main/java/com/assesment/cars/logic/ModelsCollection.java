@@ -1,8 +1,8 @@
-package collection;
+package com.assesment.cars.logic;
 
-import model.ElectricModel;
-import model.Model;
-import parser.ModelParser;
+import com.assesment.cars.model.ElectricModel;
+import com.assesment.cars.model.Model;
+import com.assesment.cars.parser.ModelParser;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
