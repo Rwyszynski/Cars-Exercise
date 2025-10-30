@@ -14,23 +14,29 @@ public class ElectricCar extends Car {
 
     @Override
     public void drive(int distance) {
-        ElectricModel em = (ElectricModel) model;
+        if (!(model instanceof ElectricModel)) {
+            throw new IllegalArgumentException("Model is not electric!");
+        }
 
+        ElectricModel em = (ElectricModel) model;
         double perKm = em.getEnergyConsumption() / 100.0;
         double consumption = perKm * distance;
         int consumed = (int) Math.round(consumption);
 
         if (batteryLevel - consumed < 0) {
-            throw new IllegalArgumentException("Battery out of stock!");
+            throw new IllegalStateException("Not enough battery to drive " + distance + " km");
         }
 
         batteryLevel -= consumed;
         distanceDriven += distance;
 
+        System.out.println("Driving for " + distance + " km");
+        System.out.println("    Odometer: " + distanceDriven + " km");
+        System.out.println("    Consumption: " + consumed + " kWh");
+        System.out.println("    Battery level: " + batteryLevel + " kWh");
     }
 
     public int getBatteryLevel() {
         return batteryLevel;
     }
 }
-

@@ -1,4 +1,5 @@
 package model;
+import car.Car;
 
 public class ElectricModel extends Model {
 
@@ -22,11 +23,11 @@ public class ElectricModel extends Model {
     @Override
     public String toString() {
         return "ElectricModel{" +
-                "batteryCapacity=" + batteryCapacity +
+                "manufacturer='" + getManufacturer() + '\'' +
+                ", modelName='" + getModelName() + '\'' +
+                ", power=" + getPower() +
+                ", batteryCapacity=" + batteryCapacity +
                 ", energyConsumption=" + energyConsumption +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", modelName='" + modelName + '\'' +
-                ", power=" + power +
                 '}';
     }
 }
