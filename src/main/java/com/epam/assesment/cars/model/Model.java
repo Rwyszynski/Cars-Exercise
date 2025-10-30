@@ -1,4 +1,4 @@
-package com.epam.cars.model;
+package com.epam.assesment.cars.model;
 
 public abstract class Model implements Comparable<Model> {
     protected String manufacturer;

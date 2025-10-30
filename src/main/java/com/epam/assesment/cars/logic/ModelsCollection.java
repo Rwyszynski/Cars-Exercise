@@ -1,8 +1,8 @@
-package com.epam.cars.logic;
+package com.epam.assesment.cars.logic;
 
-import com.epam.cars.model.ElectricModel;
-import com.epam.cars.model.Model;
-import com.epam.cars.parser.ModelParser;
+import com.epam.assesment.cars.model.ElectricModel;
+import com.epam.assesment.cars.model.Model;
+import com.epam.assesment.cars.parser.ModelParser;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
