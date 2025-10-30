@@ -30,4 +30,22 @@ public class ElectricModel extends Model {
                 ", energyConsumption=" + energyConsumption +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        ElectricModel that = (ElectricModel) obj;
+        return batteryCapacity == that.batteryCapacity &&
+                energyConsumption == that.energyConsumption;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + batteryCapacity;
+        result = 31 * result + energyConsumption;
+        return result;
+    }
 }

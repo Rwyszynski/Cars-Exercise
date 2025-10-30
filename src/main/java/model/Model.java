@@ -35,11 +35,20 @@ public abstract class Model implements Comparable<Model> {
     }
 
     @Override
-    public String toString() {
-        return getClass().getSimpleName() + "{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", modelName='" + modelName + '\'' +
-                ", power=" + power +
-                '}';
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Model model = (Model) obj;
+        return power == model.power &&
+                manufacturer.equals(model.manufacturer) &&
+                modelName.equals(model.modelName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = manufacturer.hashCode();
+        result = 31 * result + modelName.hashCode();
+        result = 31 * result + power;
+        return result;
     }
 }
