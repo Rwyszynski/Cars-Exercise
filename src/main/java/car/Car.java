@@ -3,10 +3,9 @@ package car;
 import model.Model;
 
 public abstract class Car {
-
-    protected String licensePlate;
-    protected Model model;
-    protected int distanceDriven;
+    private String licensePlate;
+    private Model model;
+    private int distanceDriven;
 
     public Car(String licensePlate, Model model, int distanceDriven) {
         this.licensePlate = licensePlate;
@@ -14,16 +13,20 @@ public abstract class Car {
         this.distanceDriven = distanceDriven;
     }
 
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
     public Model getModel() {
         return model;
     }
 
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
     public int getDistanceDriven() {
         return distanceDriven;
+    }
+
+    public void setDistanceDriven(int distanceDriven) {
+        this.distanceDriven = distanceDriven;
     }
 
     public abstract void drive(int distance);

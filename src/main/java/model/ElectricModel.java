@@ -23,9 +23,9 @@ public class ElectricModel extends Model {
     @Override
     public String toString() {
         return "ElectricModel{" +
-                "manufacturer='" + getManufacturer() + '\'' +
-                ", modelName='" + getModelName() + '\'' +
-                ", power=" + getPower() +
+                "manufacturer='" + manufacturer + '\'' +
+                ", modelName='" + modelName + '\'' +
+                ", power=" + power +
                 ", batteryCapacity=" + batteryCapacity +
                 ", energyConsumption=" + energyConsumption +
                 '}';

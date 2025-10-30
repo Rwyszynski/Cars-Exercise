@@ -26,20 +26,20 @@ public abstract class Model implements Comparable<Model> {
     }
 
     @Override
-    public String toString() {
-        return "Model{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", modelName='" + modelName + '\'' +
-                ", power=" + power +
-                '}';
-    }
-
-    @Override
     public int compareTo(Model other) {
         int manufacturerCompare = this.manufacturer.compareTo(other.manufacturer);
         if (manufacturerCompare != 0) {
             return manufacturerCompare;
         }
         return this.modelName.compareTo(other.modelName);
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "{" +
+                "manufacturer='" + manufacturer + '\'' +
+                ", modelName='" + modelName + '\'' +
+                ", power=" + power +
+                '}';
     }
 }

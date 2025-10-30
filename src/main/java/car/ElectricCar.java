@@ -4,35 +4,40 @@ import model.ElectricModel;
 import model.Model;
 
 public class ElectricCar extends Car {
-
     private int batteryLevel;
 
-    public ElectricCar(String licensePlate, Model model, int distanceDriven, int batteryLevel) {
-        super(licensePlate, model, distanceDriven);
-        this.batteryLevel = batteryLevel;
+    public ElectricCar(String licensePlate, ElectricModel model, int initialDistance) {
+        super(licensePlate, model, initialDistance);
+        this.batteryLevel = model.getBatteryCapacity();
+    }
+
+    // Alternative constructor with default distance
+    public ElectricCar(String licensePlate, ElectricModel model) {
+        this(licensePlate, model, 0);
     }
 
     @Override
     public void drive(int distance) {
-        if (!(model instanceof ElectricModel)) {
-            throw new IllegalArgumentException("Model is not electric!");
+        ElectricModel electricModel = (ElectricModel) getModel();
+
+        // Calculate energy consumption
+        double energyPerKm = electricModel.getEnergyConsumption() / 100.0;
+        double totalEnergyNeeded = energyPerKm * distance;
+
+        // Check if we have enough battery
+        if (totalEnergyNeeded > batteryLevel) {
+            throw new IllegalArgumentException("Not enough battery to drive " + distance + " km. Needed: " +
+                    totalEnergyNeeded + " kWh, available: " + batteryLevel + " kWh");
         }
 
-        ElectricModel em = (ElectricModel) model;
-        double perKm = em.getEnergyConsumption() / 100.0;
-        double consumption = perKm * distance;
-        int consumed = (int) Math.round(consumption);
+        // Update battery level and distance
+        batteryLevel -= (int) Math.round(totalEnergyNeeded);
+        setDistanceDriven(getDistanceDriven() + distance);
 
-        if (batteryLevel - consumed < 0) {
-            throw new IllegalStateException("Not enough battery to drive " + distance + " km");
-        }
-
-        batteryLevel -= consumed;
-        distanceDriven += distance;
-
+        // Print driving information
         System.out.println("Driving for " + distance + " km");
-        System.out.println("    Odometer: " + distanceDriven + " km");
-        System.out.println("    Consumption: " + consumed + " kWh");
+        System.out.println("    Odometer: " + getDistanceDriven() + " km");
+        System.out.println("    Consumption: " + (int) Math.round(totalEnergyNeeded) + " kWh");
         System.out.println("    Battery level: " + batteryLevel + " kWh");
     }
 
