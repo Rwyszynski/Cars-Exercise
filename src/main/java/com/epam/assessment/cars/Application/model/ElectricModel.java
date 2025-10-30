@@ -1,4 +1,4 @@
-package com.epam.assesment.cars.Application.model;
+package com.epam.assessment.cars.Application.model;
 
 public class ElectricModel extends Model {
     private int batteryCapacity;

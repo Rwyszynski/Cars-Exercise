@@ -1,7 +1,7 @@
-package com.epam.assesment.cars.Application.parser;
-import com.epam.assesment.cars.Application.model.ElectricModel;
-import com.epam.assesment.cars.Application.model.Model;
-import com.epam.assesment.cars.Application.model.RegularModel;
+package com.epam.assessment.cars.Application.parser;
+import com.epam.assessment.cars.Application.model.ElectricModel;
+import com.epam.assessment.cars.Application.model.Model;
+import com.epam.assessment.cars.Application.model.RegularModel;
 
 public class ModelParser {
 

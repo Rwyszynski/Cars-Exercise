@@ -1,9 +1,9 @@
 package parser;
 
-import com.epam.assesment.cars.Application.parser.ModelParser;
-import com.epam.assesment.cars.Application.model.ElectricModel;
-import com.epam.assesment.cars.Application.model.Model;
-import com.epam.assesment.cars.Application.model.RegularModel;
+import com.epam.assessment.cars.Application.parser.ModelParser;
+import com.epam.assessment.cars.Application.model.ElectricModel;
+import com.epam.assessment.cars.Application.model.Model;
+import com.epam.assessment.cars.Application.model.RegularModel;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

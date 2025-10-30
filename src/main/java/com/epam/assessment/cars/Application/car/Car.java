@@ -1,6 +1,6 @@
-package com.epam.assesment.cars.Application.car;
+package com.epam.assessment.cars.Application.car;
 
-import com.epam.assesment.cars.Application.model.Model;
+import com.epam.assessment.cars.Application.model.Model;
 
 public abstract class Car {
     private String licensePlate;
