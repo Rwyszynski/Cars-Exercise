@@ -1,4 +1,4 @@
-package perser;
+package parser;
 import model.ElectricModel;
 import model.Model;
 import model.RegularModel;

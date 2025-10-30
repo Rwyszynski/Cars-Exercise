@@ -1,9 +1,8 @@
 
-import collection.ModelsCollection;
 import model.ElectricModel;
 import model.Model;
 import model.RegularModel;
-import perser.ModelParser;
+import parser.ModelParser;
 
 public class Application {
 
