@@ -1,7 +1,7 @@
 package car;
 
-import com.epam.assesment.cars.car.ElectricCar;
-import com.epam.assesment.cars.model.ElectricModel;
+import com.epam.assesment.cars.Application.car.ElectricCar;
+import com.epam.assesment.cars.Application.model.ElectricModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

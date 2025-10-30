@@ -1,9 +1,9 @@
 package collection;
 
-import com.epam.assesment.cars.logic.ModelsCollection;
-import com.epam.assesment.cars.model.ElectricModel;
-import com.epam.assesment.cars.model.Model;
-import com.epam.assesment.cars.model.RegularModel;
+import com.epam.assesment.cars.Application.logic.ModelsCollection;
+import com.epam.assesment.cars.Application.model.ElectricModel;
+import com.epam.assesment.cars.Application.model.Model;
+import com.epam.assesment.cars.Application.model.RegularModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
