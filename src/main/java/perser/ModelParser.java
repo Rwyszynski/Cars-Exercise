@@ -6,42 +6,35 @@ import model.RegularModel;
 public class ModelParser {
 
     public static Model parse(String line) {
-        String[] parts = line.split(",");
-        if (parts.length == 0) {
-            throw new IllegalArgumentException("Invalid number of parameters");
+        String[] tokens = line.split(",");
+
+        if (tokens.length != 6) {
+            throw new IllegalArgumentException(
+                    "Invalid number of parameters. Expected 6, received: " + tokens.length
+            );
         }
 
-        String type = parts[0].trim();
+        String type = tokens[0];
 
         switch (type) {
             case "Regular":
-                if (parts.length != 6)
-                    throw new IllegalArgumentException(
-                            "Invalid number of parameters" + parts.length);
-
-                String manufacturerR = parts[1].trim();
-                String modelNameR = parts[2].trim();
-                int powerR = Integer.parseInt(parts[3].trim());
-                int engineDisplacement = Integer.parseInt(parts[4].trim());
-                double fuelConsumption = Double.parseDouble(parts[5].trim());
-
-                return new RegularModel(manufacturerR, modelNameR, powerR, engineDisplacement, fuelConsumption);
-
+                return new RegularModel(
+                        tokens[1],
+                        tokens[2],
+                        Integer.parseInt(tokens[3]),
+                        Integer.parseInt(tokens[4]),
+                        Double.parseDouble(tokens[5])
+                );
             case "Electric":
-                if (parts.length != 6)
-                    throw new IllegalArgumentException(
-                            "Invalid number of parameters" + parts.length);
-
-                String manufacturerE = parts[1].trim();
-                String modelNameE = parts[2].trim();
-                int powerE = Integer.parseInt(parts[3].trim());
-                int batteryCapacity = Integer.parseInt(parts[4].trim());
-                int energyConsumption = Integer.parseInt(parts[5].trim());
-
-                return new ElectricModel(manufacturerE, modelNameE, powerE, batteryCapacity, energyConsumption);
-
+                return new ElectricModel(
+                        tokens[1],
+                        tokens[2],
+                        Integer.parseInt(tokens[3]),
+                        Integer.parseInt(tokens[4]),
+                        Integer.parseInt(tokens[5])
+                );
             default:
-                throw new IllegalArgumentException("Unknown" + type);
+                throw new IllegalArgumentException("Unknown type: " + type);
         }
     }
 }
