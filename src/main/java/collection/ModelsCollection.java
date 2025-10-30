@@ -3,9 +3,6 @@ package collection;
 import model.ElectricModel;
 import model.Model;
 import perser.ModelParser;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,15 +16,26 @@ public class ModelsCollection {
 
     public void readFromFile(String filename) {
         try {
-            List<String> lines = Files.readAllLines(Path.of(filename));
-            for (String line : lines) {
+            Path filePath = Path.of(filename);
+            if (!Files.exists(filePath)) {
+                throw new RuntimeException("Error occurred while reading file: " + filename + " (File not found)");
+            }
+
+            List<String> lines = Files.readAllLines(filePath);
+            for (int i = 0; i < lines.size(); i++) {
+                String line = lines.get(i);
                 if (!line.trim().isEmpty()) {
-                    Model model = ModelParser.parse(line);
-                    models.add(model);
+                    try {
+                        Model model = ModelParser.parse(line);
+                        models.add(model);
+                    } catch (IllegalArgumentException e) {
+                        System.err.println("Error parsing line " + (i + 1) + ": " + e.getMessage());
+                        throw e;
+                    }
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException("Error occurred while reading file: " + e.getMessage(), e);
+            throw new RuntimeException("Error occurred while reading file: " + e.getMessage());
         }
     }
 
@@ -38,10 +46,10 @@ public class ModelsCollection {
                 .findFirst();
     }
 
-    public List<Model> getElectricModelsByBatteryCapacity(int batteryCapacityLimit) {
+    public List<ElectricModel> getElectricModelsByBatteryCapacity(int batteryCapacityLimit) {
         return models.stream()
-                .filter(model -> model instanceof model.ElectricModel)
-                .map(model -> (model.ElectricModel) model)
+                .filter(model -> model instanceof ElectricModel)
+                .map(model -> (ElectricModel) model)
                 .filter(electricModel -> electricModel.getBatteryCapacity() >= batteryCapacityLimit)
                 .sorted()
                 .collect(Collectors.toList());

@@ -13,6 +13,7 @@ public abstract class Car {
         this.distanceDriven = distanceDriven;
     }
 
+    // ... gettery i settery
     public Model getModel() {
         return model;
     }

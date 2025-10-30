@@ -9,12 +9,10 @@ public class Application {
 
     public static void main(String[] args) {
         try {
-            // Test Electric model
+
             String electricLine = "Electric,Tesla,Model 3,300,75,18";
             Model electricModel = ModelParser.parse(electricLine);
             System.out.println("Is ElectricModel: " + (electricModel instanceof ElectricModel));
-
-            // Test Regular model
             String regularLine = "Regular,Opel,Astra,81,1199,5.2";
             Model regularModel = ModelParser.parse(regularLine);
             System.out.println("Is RegularModel: " + (regularModel instanceof RegularModel));
